@@ -55,7 +55,7 @@ export class SkyDescriptionListComponent implements AfterContentInit, AfterViewI
 /**
  * Specifies a default description to display when no description is provided
  * for a term-description pair.
- * @default 'None found'
+ * @default 'None found.'
  */
   @Input()
   public set defaultDescription(value: string) {
