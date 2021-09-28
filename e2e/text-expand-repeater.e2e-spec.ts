@@ -27,10 +27,26 @@ describe('Text Expand Repeater', () => {
     });
   });
 
+  it('should match previous text expand repeater when not expanded with hideListSymbols', (done) => {
+    SkyHostBrowser.scrollTo('#text-expand-repeater-hide-symbols');
+    expect('#text-expand-repeater').toMatchBaselineScreenshot(done, {
+      screenshotName: 'text-expand-repeater-not-expanded-hide-symbols'
+    });
+  });
+
   it('should match the previous text expand repeater when expanded', (done) => {
     element(by.css('.sky-text-expand-repeater-see-more')).click();
     expect('#text-expand-repeater').toMatchBaselineScreenshot(done, {
       screenshotName: 'text-expand-repeater-expanded'
+    });
+    element(by.css('.sky-text-expand-repeater-see-more')).click();
+  });
+
+  it('should match the previous text expand repeater when expanded with hideListSymbols', (done) => {
+    SkyHostBrowser.scrollTo('#text-expand-repeater-hide-symbols');
+    element(by.css('.sky-text-expand-repeater-see-more')).click();
+    expect('#text-expand-repeater').toMatchBaselineScreenshot(done, {
+      screenshotName: 'text-expand-repeater-expanded-hide-symbols'
     });
     element(by.css('.sky-text-expand-repeater-see-more')).click();
   });

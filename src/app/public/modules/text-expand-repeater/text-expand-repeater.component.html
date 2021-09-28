@@ -1,5 +1,12 @@
 <div class="sky-text-expand-repeater">
-  <ul class="sky-text-expand-repeater-container" [id]="contentSectionId" (transitionend)="animationEnd()" #container>
+  <ul
+    class="sky-text-expand-repeater-container"
+    [id]="contentSectionId"
+    (transitionend)="animationEnd()"
+    [ngClass]="{
+      'sky-text-expand-repeater-hide-symbols' : hideListSymbols
+    }"
+    #container>
     <li *ngFor="let item of contentItems" class="sky-text-expand-repeater-item">
       <ng-template
         [ngTemplateOutlet]="itemTemplate || defaultItemTemplate"
@@ -10,6 +17,9 @@
   <button *ngIf="expandable"
     type="button"
     class="sky-btn sky-btn-link-inline sky-text-expand-repeater-see-more"
+    [ngClass]="{
+      'sky-text-expand-repeater-see-more-hide-symbols' : hideListSymbols
+    }"
     [attr.aria-expanded]="isExpanded"
     [attr.aria-controls]="contentSectionId"
     (click)="repeaterExpand()"

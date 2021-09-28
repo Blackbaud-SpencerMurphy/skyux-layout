@@ -59,6 +59,12 @@ export class SkyTextExpandRepeaterComponent implements AfterViewInit, OnChanges 
   @Input()
   public maxItems: number;
 
+  /**
+   * Specifies if the list item bullets should be hidden
+   */
+  @Input()
+  public hideListSymbols: boolean;
+
   public buttonText: string;
   public contentItems: Array<any>;
   public expandable: boolean;

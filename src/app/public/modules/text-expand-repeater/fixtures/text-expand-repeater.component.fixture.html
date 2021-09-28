@@ -4,12 +4,14 @@
   <sky-text-expand-repeater
     [data]="data"
     [maxItems]="numItems"
+    [hideListSymbols]="hideListSymbols"
   ></sky-text-expand-repeater>
 
   <sky-text-expand-repeater
     [data]="customTemplateData"
     [itemTemplate]="myTemplate"
     [maxItems]="numItems"
+    [hideListSymbols]="hideListSymbols"
   >
     <ng-template
       let-item

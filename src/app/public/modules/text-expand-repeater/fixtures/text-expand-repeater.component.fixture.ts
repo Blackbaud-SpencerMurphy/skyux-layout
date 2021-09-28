@@ -20,6 +20,8 @@ export class TextExpandRepeaterTestComponent {
 
   public numItems: number;
 
+  public hideListSymbols: boolean;
+
   @ViewChildren(SkyTextExpandRepeaterComponent, {
     read: SkyTextExpandRepeaterComponent
   })

@@ -61,6 +61,21 @@ describe('Text expand repeater component', () => {
       expect(buttonElem.getAttribute('aria-controls')).toBe(cmp.textExpand.first.contentSectionId);
     }));
 
+    it('should not have list symbols hidden by default', () => {
+      cmp.data = ['john', 'bob'];
+      cmp.numItems = 2;
+      fixture.detectChanges();
+      expect(el.querySelector('.sky-text-expand-repeater-hide-symbols')).not.toExist();
+    });
+
+    it(`should set class when hideListSymbols property is true`, () => {
+      cmp.data = ['john', 'bob'];
+      cmp.numItems = 2;
+      cmp.hideListSymbols = true;
+      fixture.detectChanges();
+      expect(el.querySelector('.sky-text-expand-repeater-hide-symbols')).toExist();
+    });
+
     it('should not have see more button if data is less than or equal to max items', () => {
       cmp.data = ['john', 'bob'];
       cmp.numItems = 2;
@@ -79,6 +94,15 @@ describe('Text expand repeater component', () => {
       let seeMoreButton: any = el.querySelector('.sky-text-expand-repeater-see-more');
       expect(seeMoreButton).not.toBeNull();
       expect(seeMoreButton.innerText.trim()).toBe('See more');
+    });
+
+    it(`should set class on see more button when hideListSymbols property is true`, () => {
+      cmp.data = ['john', 'bob', 'hank'];
+      cmp.numItems = 2;
+      cmp.hideListSymbols = true;
+      fixture.detectChanges();
+      let seeMoreButton: any = el.querySelector('.sky-text-expand-repeater-see-more');
+      expect(seeMoreButton).toHaveCssClass('sky-text-expand-repeater-see-more-hide-symbols');
     });
 
     it('should not have see more button or data if long data is changed to undefined', () => {
